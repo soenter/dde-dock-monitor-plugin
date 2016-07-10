@@ -19,6 +19,8 @@
 #include <QJsonObject>
 #include <QJsonArray>
 #include <QJsonDocument>
+#include <cpus.h>
+
 class MonitorPlugin : public QObject, public DockPluginInterface
 {
     Q_OBJECT
@@ -60,6 +62,7 @@ private:
                                bool checked = false);
     DockPluginProxyInterface *m_proxy;
     watch* monitor;
+    Cpus* cpumonitor;
     QSettings *m_settings = NULL;
     void initSettings()  ;
     bool memshowed,netshowed;

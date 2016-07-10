@@ -8,11 +8,13 @@ CONFIG += plugin c++11
 
 SOURCES += \ 
     watch.cpp \
-    monitorplugin.cpp
+    monitorplugin.cpp \
+    cpus.cpp
 
 HEADERS += \ 
     watch.h \
-    monitorplugin.h
+    monitorplugin.h \
+    cpus.h
 INCLUDEPATH += ../dde-dock/src/
 
 DISTFILES += dde-dock-monitor-plugin.json
@@ -26,4 +28,5 @@ RESOURCES += \
     res.qrc
 
 FORMS += \
-    watch.ui
+    watch.ui \
+    cpus.ui

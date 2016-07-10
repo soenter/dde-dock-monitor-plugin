@@ -24,10 +24,11 @@ MonitorPlugin::MonitorPlugin(QObject *parent)
     : QObject(parent)
 {
     memshowed=true;//默认开启
-
     initSettings();
   //  m_settings->setValue("enabled", true);
     monitor = new watch(memshowed,netshowed);
+    cpumonitor = new Cpus;
+
     if(memshowed&&netshowed) monitor->setFixedSize(66,28);
     else if(memshowed) monitor->setFixedSize(28,28);
     else if(netshowed) monitor->setFixedSize(36,28);
@@ -123,8 +124,9 @@ QWidget *MonitorPlugin::getItem(QString id)
 QWidget *MonitorPlugin::getApplet(QString id)
 {
     Q_UNUSED(id)
-
-    return nullptr;
+    cpumonitor->start();
+    return cpumonitor;
+   // return nullptr;
 }
 
 QString MonitorPlugin::getMenuContent(QString id)
